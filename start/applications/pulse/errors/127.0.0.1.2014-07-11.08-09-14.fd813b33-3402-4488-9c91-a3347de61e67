@@ -1,0 +1,1150 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> must be string or buffer, not set"
+p3
+sS'layer'
+p4
+S'/home/wantsomechocolate/Code/web2py/start/applications/pulse/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n\nimport requests\nimport json\n\ndef index():\n    return dict()\n\ndef pulse():\n    session.m=[]\n    url = \'http://text-processing.com/api/sentiment/\'\n    #first item\n    text_first = request.vars.first_item\n    text_first = text_first.split(\'_\')\n    text_first = \' \'.join(text_first)\n    session.m.append(text_first)\n    data_first = {\'text\',text_first}\n    r_first = requests.post(url,data=data_first)\n    session.m.append(r_first.content)\n    \n    #second item\n    text_second = request.vars.second_item\n    text_second = text_second.split(\'_\')\n    text_second = \' \'.join(text_second)\n    session.m.append(text_second)\n    data_second = {\'text\',text_second}\n    r_second = requests.post(url, data=data_second)\n    session.m.append(r_second.content)\n    \n    session.m.sort()\n    return text_first, text_second, TABLE(*[TR(v) for v in session.m]).xml()\n    \n\n       \n        \n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    http://..../[app]/default/user/manage_users (requires membership in\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n@cache.action()\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request, db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\n\n@auth.requires_signature()\ndef data():\n    """\n    http://..../[app]/default/data/tables\n    http://..../[app]/default/data/create/[table]\n    http://..../[app]/default/data/read/[table]/[id]\n    http://..../[app]/default/data/update/[table]/[id]\n    http://..../[app]/default/data/delete/[table]/[id]\n    http://..../[app]/default/data/select/[table]\n    http://..../[app]/default/data/search/[table]\n    but URLs must be signed, i.e. linked with\n      A(\'table\',_href=URL(\'data/tables\',user_signature=True))\n    or with the signed load operator\n      LOAD(\'default\',\'data.load\',args=\'tables\',ajax=True,user_signature=True)\n    """\n    return dict(form=crud())\n\nresponse._vars=response._caller(pulse)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.TypeError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.TypeError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.TypeError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.TypeError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.TypeError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.TypeError object>'
+p23
+sS'args'
+p24
+S"('must be string or buffer, not set',)"
+p25
+sS'__reduce__'
+p26
+S'<built-in method __reduce__ of exceptions.TypeError object>'
+p27
+sS'__str__'
+p28
+S"<method-wrapper '__str__' of exceptions.TypeError object>"
+p29
+sS'__format__'
+p30
+S'<built-in method __format__ of exceptions.TypeError object>'
+p31
+sS'__getattribute__'
+p32
+S"<method-wrapper '__getattribute__' of exceptions.TypeError object>"
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.TypeError'>"
+p35
+sS'__unicode__'
+p36
+S'<built-in method __unicode__ of exceptions.TypeError object>'
+p37
+sS'__delattr__'
+p38
+S"<method-wrapper '__delattr__' of exceptions.TypeError object>"
+p39
+sS'__subclasshook__'
+p40
+S'<built-in method __subclasshook__ of type object>'
+p41
+sS'__repr__'
+p42
+S"<method-wrapper '__repr__' of exceptions.TypeError object>"
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.TypeError object>'
+p47
+sS'__doc__'
+p48
+S"'Inappropriate argument type.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.TypeError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S'must be string or buffer, not set'
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's\xbea\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-fe138179-7fa1-422e-bd45-a1c48c2cbe36<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_pulse</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-64d71a5d-3d2b-4dc4-847a-44b9d42fc9f4<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-21dcef97-51fb-4c90-aed8-7c38e01e39c3<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>application/x-www-form-urlencoded; charset=UTF-8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>*/*</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>application/x-www-form-urlencoded; charset=UTF-8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-21dcef97-51fb-4c90-aed8-7c38e01e39c3; session_id_admin=127.0.0.1-fe138179-7fa1-422e-bd45-a1c48c2cbe36; session_id_pulse=127.0.0.1-64d71a5d-3d2b-4dc4-847a-44b9d42fc9f4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>localhost:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ORIGIN</td><td style="vertical-align:top;">:</td><td><div>http://localhost:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://localhost:8000/pulse/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/34.0.1847.116 Chrome/34.0.1847.116 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_X_REQUESTED_WITH</td><td style="vertical-align:top;">:</td><td><div>XMLHttpRequest</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/pulse/default/pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>55556</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>House</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/wantsomechocolate/Code/web2py/start/applications/pulse/&#x27;, &#x27;/home/wantsomechocolate/Code/web2py/start/applications/admin/&#x27;, &#x27;/home/wantsomechocolate/Code/web2py/start/applications/welcome/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/wantsomechocolate/Code/web2py/start</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2767ea8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;House&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/wantsomechocolate/Code/web2py/start&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_length</td><td style="vertical-align:top;">:</td><td><div>36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_type</td><td style="vertical-align:top;">:</td><td><div>application/x-www-form-urlencoded; charset=UTF-8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/wantsomechocolate/Code/web2py/start</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>*/*</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip,deflate,sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_length</td><td style="vertical-align:top;">:</td><td><div>36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_type</td><td style="vertical-align:top;">:</td><td><div>application/x-www-form-urlencoded; charset=UTF-8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_welcome=127.0.0.1-21dcef97-51fb-4c90-aed8-7c38e01e39c3; session_id_admin=127.0.0.1-fe138179-7fa1-422e-bd45-a1c48c2cbe36; session_id_pulse=127.0.0.1-64d71a5d-3d2b-4dc4-847a-44b9d42fc9f4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>localhost:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_origin</td><td style="vertical-align:top;">:</td><td><div>http://localhost:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://localhost:8000/pulse/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/34.0.1847.116 Chrome/34.0.1847.116 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_x_requested_with</td><td style="vertical-align:top;">:</td><td><div>XMLHttpRequest</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>House</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/pulse/default/pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>55556</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/pulse/default/pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>House</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/wantsomechocolate/Code/web2py/start</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f88a4ad11e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x26df808&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f8874305f50&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x7f88a4ad11e0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x26df808&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x7f8874305f50&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/wantsomechocolate/Code/web2py/start/applications/pulse/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/wantsomechocolate/Code/web2py/start/applications/pulse/&#x27;, &#x27;/home/wantsomechocolate/Code/web2py/start/applications/admin/&#x27;, &#x27;/home/wantsomechocolate/Code/web2py/start/applications/welcome/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/wantsomechocolate/Code/web2py/start</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2767ea8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;127.0.1.1&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;port&#x27;: 8000, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;House&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;/home/wantsomechocolate/Code/web2py/start&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;scheduler_groups&#x27;: None, &#x27;password&#x27;: &#x27;&lt;ask&gt;&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/wantsomechocolate/Code/web2py/start</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>House</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.9.5-stable+timestamp.2014.03.16.02.35.39</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 7, 11, 8, 9, 14, 51680)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/pulse/default/pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2014, 7, 11, 12, 9, 14, 51704)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">uuid</td><td style="vertical-align:top;">:</td><td><div>pulse/127.0.0.1.2014-07-11.08-09-14.fd813b33-3402-4488-9c91-a3347de61e67</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7f88841b6310&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'/home/wantsomechocolate/Code/web2py/start/gluon/restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 0x7f88743987b0, file "/...plications/pulse/controllers/default.py", line 3>'
+p69
+ssS'lnum'
+p70
+I220
+sS'lines'
+p71
+(dp72
+I224
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p73
+sI215
+S'    try:'
+p74
+sI216
+S'        if isinstance(code, types.CodeType):'
+p75
+sI217
+S'            ccode = code'
+p76
+sI218
+S'        else:'
+p77
+sI219
+S'            ccode = compile2(code, layer)'
+p78
+sI220
+S'        exec ccode in environment'
+p79
+sI221
+S'    except HTTP:'
+p80
+sI222
+S'        raise'
+p81
+sI223
+S'    except RestrictedError:'
+p82
+ssS'call'
+p83
+S"(code='# -*- coding: utf-8 -*-\\n\\nimport requests\\nimport ...=crud())\\n\\nresponse._vars=response._caller(pulse)\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}, layer='/home/wantsomechocolate/Code/web2py/start/applications/pulse/controllers/default.py')"
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'/home/wantsomechocolate/Code/web2py/start/applications/pulse/controllers/default.py'
+p88
+sg64
+(dp89
+sg70
+I90
+sg71
+(dp90
+I79
+S'    http://..../[app]/default/data/update/[table]/[id]'
+p91
+sI80
+S'    http://..../[app]/default/data/delete/[table]/[id]'
+p92
+sI81
+S'    http://..../[app]/default/data/select/[table]'
+p93
+sI82
+S'    http://..../[app]/default/data/search/[table]'
+p94
+sI83
+S'    but URLs must be signed, i.e. linked with'
+p95
+sI84
+S"      A('table',_href=URL('data/tables',user_signature=True))"
+p96
+sI85
+S'    or with the signed load operator'
+p97
+sI86
+S"      LOAD('default','data.load',args='tables',ajax=True,user_signature=True)"
+p98
+sI87
+S'    """'
+p99
+sI88
+S'    return dict(form=crud())'
+p100
+ssg83
+S'()'
+p101
+sg85
+S'<module>'
+p102
+sa(dp103
+g62
+S'/home/wantsomechocolate/Code/web2py/start/gluon/globals.py'
+p104
+sg64
+(dp105
+S'self'
+p106
+S'undefined'
+p107
+sS'f'
+S'<function pulse>'
+p108
+ssg70
+I385
+sg71
+(dp109
+I384
+S'        self._vars = None'
+p110
+sI385
+S'        self._caller = lambda f: f()'
+p111
+sI386
+S'        self._view_environment = None'
+p112
+sI387
+S'        self._custom_commit = None'
+p113
+sI388
+S'        self._custom_rollback = None'
+p114
+sI389
+S''
+sI380
+S'        self.menu = []             # used by the default view layout'
+p115
+sI381
+S'        self.files = []            # used by web2py_ajax.html'
+p116
+sI382
+S'        self.generic_patterns = []  # patterns to allow generic views'
+p117
+sI383
+S"        self.delimiters = ('{{', '}}')"
+p118
+ssg83
+S'(f=<function pulse>)'
+p119
+sg85
+S'<lambda>'
+p120
+sa(dp121
+g62
+S'/home/wantsomechocolate/Code/web2py/start/applications/pulse/controllers/default.py'
+p122
+sg64
+(dp123
+S'url'
+p124
+S"'http://text-processing.com/api/sentiment/'"
+p125
+sS'requests.post'
+p126
+S'<function post>'
+p127
+sS'global data'
+p128
+S'<function data>'
+p129
+sS'global requests'
+p130
+S"<module 'requests' from '/home/wantsomechocolate...b/python2.7/site-packages/requests/__init__.pyc'>"
+p131
+sS'data_first'
+p132
+S"set(['asdfasdf', 'text'])"
+p133
+sS'r_first'
+p134
+g107
+ssg70
+I18
+sg71
+(dp135
+I13
+S'    text_first = request.vars.first_item'
+p136
+sI14
+S"    text_first = text_first.split('_')"
+p137
+sI15
+S"    text_first = ' '.join(text_first)"
+p138
+sI16
+S'    session.m.append(text_first)'
+p139
+sI17
+S"    data_first = {'text',text_first}"
+p140
+sI18
+S'    r_first = requests.post(url,data=data_first)'
+p141
+sI19
+S'    session.m.append(r_first.content)'
+p142
+sI20
+S''
+sI21
+S'    #second item'
+p143
+sI22
+S'    text_second = request.vars.second_item'
+p144
+ssg83
+S'()'
+p145
+sg85
+S'pulse'
+p146
+sa(dp147
+g62
+S'/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/api.py'
+p148
+sg64
+(dp149
+S'global request'
+p150
+S'<function request>'
+p151
+sS'url'
+p152
+S"'http://text-processing.com/api/sentiment/'"
+p153
+sS'data'
+p154
+S"set(['asdfasdf', 'text'])"
+p155
+sS'kwargs'
+p156
+g45
+ssg70
+I88
+sg71
+(dp157
+I83
+S'    :param url: URL for the new :class:`Request` object.'
+p158
+sI84
+S'    :param data: (optional) Dictionary, bytes, or file-like object to send in the body of the :class:`Request`.'
+p159
+sI85
+S'    :param \\*\\*kwargs: Optional arguments that ``request`` takes.'
+p160
+sI86
+S'    """'
+p161
+sI87
+S''
+sI88
+S"    return request('post', url, data=data, **kwargs)"
+p162
+sI89
+S''
+sI90
+S''
+sI91
+S'def put(url, data=None, **kwargs):'
+p163
+sI92
+S'    """Sends a PUT request. Returns :class:`Response` object.'
+p164
+ssg83
+S"(url='http://text-processing.com/api/sentiment/', data=set(['asdfasdf', 'text']), **kwargs={})"
+p165
+sg85
+S'post'
+p166
+sa(dp167
+g62
+S'/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/api.py'
+p168
+sg64
+(dp169
+S'url'
+p170
+S"'http://text-processing.com/api/sentiment/'"
+p171
+sS'session'
+p172
+S'<requests.sessions.Session object>'
+p173
+sS'method'
+p174
+S"'post'"
+p175
+sS'session.request'
+p176
+S'<bound method Session.request of <requests.sessions.Session object>>'
+p177
+sS'kwargs'
+p178
+S"{'data': set(['asdfasdf', 'text'])}"
+p179
+ssg70
+I44
+sg71
+(dp180
+I39
+S"      >>> req = requests.request('GET', 'http://httpbin.org/get')"
+p181
+sI40
+S'      <Response [200]>'
+p182
+sI41
+S'    """'
+p183
+sI42
+S''
+sI43
+S'    session = sessions.Session()'
+p184
+sI44
+S'    return session.request(method=method, url=url, **kwargs)'
+p185
+sI45
+S''
+sI46
+S''
+sI47
+S'def get(url, **kwargs):'
+p186
+sI48
+S'    """Sends a GET request. Returns :class:`Response` object.'
+p187
+ssg83
+S"(method='post', url='http://text-processing.com/api/sentiment/', **kwargs={'data': set(['asdfasdf', 'text'])})"
+p188
+sg85
+g56
+sa(dp189
+g62
+S'/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/sessions.py'
+p190
+sg64
+(dp191
+S'resp'
+p192
+g107
+sS'send_kwargs'
+p193
+S"{'allow_redirects': True, 'cert': None, 'proxies': {}, 'stream': False, 'timeout': None, 'verify': True}"
+p194
+sS'prep'
+p195
+S'<PreparedRequest [POST]>'
+p196
+sS'self'
+p197
+S'<requests.sessions.Session object>'
+p198
+sS'self.send'
+p199
+S'<bound method Session.send of <requests.sessions.Session object>>'
+p200
+ssg70
+I456
+sg71
+(dp201
+I451
+S"            'verify': verify,"
+p202
+sI452
+S"            'cert': cert,"
+p203
+sI453
+S"            'proxies': proxies,"
+p204
+sI454
+S"            'allow_redirects': allow_redirects,"
+p205
+sI455
+S'        }'
+p206
+sI456
+S'        resp = self.send(prep, **send_kwargs)'
+p207
+sI457
+S''
+sI458
+S'        return resp'
+p208
+sI459
+S''
+sI460
+S'    def get(self, url, **kwargs):'
+p209
+ssg83
+S"(self=<requests.sessions.Session object>, method='post', url='http://text-processing.com/api/sentiment/', params=None, data=set(['asdfasdf', 'text']), headers=None, cookies=None, files=None, auth=None, timeout=None, allow_redirects=True, proxies={}, hooks=None, stream=False, verify=True, cert=None)"
+p210
+sg85
+g56
+sa(dp211
+g62
+S'/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/sessions.py'
+p212
+sg64
+(dp213
+S'request'
+p214
+S'<PreparedRequest [POST]>'
+p215
+sS'adapter'
+p216
+S'<requests.adapters.HTTPAdapter object>'
+p217
+sS'r'
+g107
+sS'adapter.send'
+p218
+S'<bound method HTTPAdapter.send of <requests.adapters.HTTPAdapter object>>'
+p219
+sS'kwargs'
+p220
+S"{'cert': None, 'proxies': {}, 'stream': False, 'timeout': None, 'verify': True}"
+p221
+ssg70
+I559
+sg71
+(dp222
+I554
+S''
+sI555
+S'        # Start time (approximately) of the request'
+p223
+sI556
+S'        start = datetime.utcnow()'
+p224
+sI557
+S''
+sI558
+S'        # Send the request'
+p225
+sI559
+S'        r = adapter.send(request, **kwargs)'
+p226
+sI560
+S''
+sI561
+S'        # Total elapsed time of the request (approximately)'
+p227
+sI562
+S'        r.elapsed = datetime.utcnow() - start'
+p228
+sI563
+S''
+ssg83
+S"(self=<requests.sessions.Session object>, request=<PreparedRequest [POST]>, **kwargs={'cert': None, 'proxies': {}, 'stream': False, 'timeout': None, 'verify': True})"
+p229
+sg85
+S'send'
+p230
+sa(dp231
+g62
+S'/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/adapters.py'
+p232
+sg64
+(dp233
+S'timeout'
+p234
+S'<requests.packages.urllib3.util.timeout.Timeout object>'
+p235
+ssg70
+I327
+sg71
+(dp236
+I322
+S'                    redirect=False,'
+p237
+sI323
+S'                    assert_same_host=False,'
+p238
+sI324
+S'                    preload_content=False,'
+p239
+sI325
+S'                    decode_content=False,'
+p240
+sI326
+S'                    retries=self.max_retries,'
+p241
+sI327
+S'                    timeout=timeout'
+p242
+sI328
+S'                )'
+p243
+sI329
+S''
+sI330
+S'            # Send the request.'
+p244
+sI331
+S'            else:'
+p245
+ssg83
+S'(self=<requests.adapters.HTTPAdapter object>, request=<PreparedRequest [POST]>, stream=False, timeout=<requests.packages.urllib3.util.timeout.Timeout object>, verify=True, cert=None, proxies={})'
+p246
+sg85
+g230
+sa(dp247
+g62
+S'/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/packages/urllib3/connectionpool.py'
+p248
+sg64
+(dp249
+S'body'
+p250
+S"set(['asdfasdf', 'text'])"
+p251
+sS'headers'
+p252
+S"{'Content-Length': '2', 'Accept-Encoding': 'gzip...ts/2.3.0 CPython/2.7.5+ Linux/3.11.0-24-generic'}"
+p253
+ssg70
+I493
+sg71
+(dp254
+I488
+S'            conn = self._get_conn(timeout=pool_timeout)'
+p255
+sI489
+S''
+sI490
+S'            # Make the request on the httplib connection object'
+p256
+sI491
+S'            httplib_response = self._make_request(conn, method, url,'
+p257
+sI492
+S'                                                  timeout=timeout,'
+p258
+sI493
+S'                                                  body=body, headers=headers)'
+p259
+sI494
+S''
+sI495
+S"            # If we're going to release the connection in ``finally:``, then"
+p260
+sI496
+S"            # the request doesn't need to know about the connection. Otherwise"
+p261
+sI497
+S"            # it will also try to release it and we'll have a double-release"
+p262
+ssg83
+S"(self=<requests.packages.urllib3.connectionpool.HTTPConnectionPool object>, method='POST', url='/api/sentiment/', body=set(['asdfasdf', 'text']), headers={'Content-Length': '2', 'Accept-Encoding': 'gzip...ts/2.3.0 CPython/2.7.5+ Linux/3.11.0-24-generic'}, retries=0, redirect=False, assert_same_host=False, timeout=<requests.packages.urllib3.util.timeout.Timeout object>, pool_timeout=None, release_conn=False, **response_kw={'decode_content': False, 'preload_content': False})"
+p263
+sg85
+S'urlopen'
+p264
+sa(dp265
+g62
+S'/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/packages/urllib3/connectionpool.py'
+p266
+sg64
+(dp267
+S'url'
+p268
+S"'/api/sentiment/'"
+p269
+sS'httplib_request_kw'
+p270
+S"{'body': set(['asdfasdf', 'text']), 'headers': {'Content-Length': '2', 'Accept-Encoding': 'gzip...ts/2.3.0 CPython/2.7.5+ Linux/3.11.0-24-generic'}}"
+p271
+sS'method'
+p272
+S"'POST'"
+p273
+sS'conn'
+p274
+S'<requests.packages.urllib3.connection.HTTPConnection object>'
+p275
+sS'conn.request'
+p276
+S'<bound method HTTPConnection.request of <request...ckages.urllib3.connection.HTTPConnection object>>'
+p277
+ssg70
+I291
+sg71
+(dp278
+I288
+S'            conn.timeout = timeout_obj.connect_timeout'
+p279
+sI289
+S'            # conn.request() calls httplib.*.request, not the method in'
+p280
+sI290
+S'            # urllib3.request. It also calls makefile (recv) on the socket.'
+p281
+sI291
+S'            conn.request(method, url, **httplib_request_kw)'
+p282
+sI292
+S'        except SocketTimeout:'
+p283
+sI293
+S'            raise ConnectTimeoutError('
+p284
+sI294
+S'                self, "Connection to %s timed out. (connect timeout=%s)" %'
+p285
+sI295
+S'                (self.host, timeout_obj.connect_timeout))'
+p286
+sI286
+S'        try:'
+p287
+sI287
+S'            timeout_obj.start_connect()'
+p288
+ssg83
+S"(self=<requests.packages.urllib3.connectionpool.HTTPConnectionPool object>, conn=<requests.packages.urllib3.connection.HTTPConnection object>, method='POST', url='/api/sentiment/', timeout=<requests.packages.urllib3.util.timeout.Timeout object>, **httplib_request_kw={'body': set(['asdfasdf', 'text']), 'headers': {'Content-Length': '2', 'Accept-Encoding': 'gzip...ts/2.3.0 CPython/2.7.5+ Linux/3.11.0-24-generic'}})"
+p289
+sg85
+S'_make_request'
+p290
+sa(dp291
+g62
+S'/usr/lib/python2.7/httplib.py'
+p292
+sg64
+(dp293
+S'body'
+p294
+S"set(['asdfasdf', 'text'])"
+p295
+sS'self._send_request'
+p296
+S'<bound method HTTPConnection._send_request of <r...ckages.urllib3.connection.HTTPConnection object>>'
+p297
+sS'url'
+p298
+S"'/api/sentiment/'"
+p299
+sS'self'
+p300
+S'<requests.packages.urllib3.connection.HTTPConnection object>'
+p301
+sS'headers'
+p302
+S"{'Content-Length': '2', 'Accept-Encoding': 'gzip...ts/2.3.0 CPython/2.7.5+ Linux/3.11.0-24-generic'}"
+p303
+sS'method'
+p304
+S"'POST'"
+p305
+ssg70
+I973
+sg71
+(dp306
+I968
+S'            raise CannotSendHeader()'
+p307
+sI969
+S'        self._send_output(message_body)'
+p308
+sI970
+S''
+sI971
+S'    def request(self, method, url, body=None, headers={}):'
+p309
+sI972
+S'        """Send a complete request to the server."""'
+p310
+sI973
+S'        self._send_request(method, url, body, headers)'
+p311
+sI974
+S''
+sI975
+S'    def _set_content_length(self, body):'
+p312
+sI976
+S'        # Set the content-length based on the body.'
+p313
+sI977
+S'        thelen = None'
+p314
+ssg83
+S"(self=<requests.packages.urllib3.connection.HTTPConnection object>, method='POST', url='/api/sentiment/', body=set(['asdfasdf', 'text']), headers={'Content-Length': '2', 'Accept-Encoding': 'gzip...ts/2.3.0 CPython/2.7.5+ Linux/3.11.0-24-generic'})"
+p315
+sg85
+g56
+sa(dp316
+g62
+S'/usr/lib/python2.7/httplib.py'
+p317
+sg64
+(dp318
+S'self.endheaders'
+p319
+S'<bound method HTTPConnection.endheaders of <requ...ckages.urllib3.connection.HTTPConnection object>>'
+p320
+sS'body'
+p321
+S"set(['asdfasdf', 'text'])"
+p322
+sS'self'
+p323
+S'<requests.packages.urllib3.connection.HTTPConnection object>'
+p324
+ssg70
+I1007
+sg71
+(dp325
+I1002
+S''
+sI1003
+S"        if body is not None and 'content-length' not in header_names:"
+p326
+sI1004
+S'            self._set_content_length(body)'
+p327
+sI1005
+S'        for hdr, value in headers.iteritems():'
+p328
+sI1006
+S'            self.putheader(hdr, value)'
+p329
+sI1007
+S'        self.endheaders(body)'
+p330
+sI1008
+S''
+sI1009
+S'    def getresponse(self, buffering=False):'
+p331
+sI1010
+S'        "Get the response from the server."'
+p332
+sI1011
+S''
+ssg83
+S"(self=<requests.packages.urllib3.connection.HTTPConnection object>, method='POST', url='/api/sentiment/', body=set(['asdfasdf', 'text']), headers={'Content-Length': '2', 'Accept-Encoding': 'gzip...ts/2.3.0 CPython/2.7.5+ Linux/3.11.0-24-generic'})"
+p333
+sg85
+S'_send_request'
+p334
+sa(dp335
+g62
+S'/usr/lib/python2.7/httplib.py'
+p336
+sg64
+(dp337
+S'message_body'
+p338
+S"set(['asdfasdf', 'text'])"
+p339
+sS'self'
+p340
+S'<requests.packages.urllib3.connection.HTTPConnection object>'
+p341
+sS'self._send_output'
+p342
+S'<bound method HTTPConnection._send_output of <re...ckages.urllib3.connection.HTTPConnection object>>'
+p343
+ssg70
+I969
+sg71
+(dp344
+I964
+S'        """'
+p345
+sI965
+S'        if self.__state == _CS_REQ_STARTED:'
+p346
+sI966
+S'            self.__state = _CS_REQ_SENT'
+p347
+sI967
+S'        else:'
+p348
+sI968
+S'            raise CannotSendHeader()'
+p349
+sI969
+S'        self._send_output(message_body)'
+p350
+sI970
+S''
+sI971
+S'    def request(self, method, url, body=None, headers={}):'
+p351
+sI972
+S'        """Send a complete request to the server."""'
+p352
+sI973
+S'        self._send_request(method, url, body, headers)'
+p353
+ssg83
+S"(self=<requests.packages.urllib3.connection.HTTPConnection object>, message_body=set(['asdfasdf', 'text']))"
+p354
+sg85
+S'endheaders'
+p355
+sa(dp356
+g62
+S'/usr/lib/python2.7/httplib.py'
+p357
+sg64
+(dp358
+S'message_body'
+p359
+S"set(['asdfasdf', 'text'])"
+p360
+sS'self'
+p361
+S'<requests.packages.urllib3.connection.HTTPConnection object>'
+p362
+sS'self.send'
+p363
+S'<bound method HTTPConnection.send of <requests.packages.urllib3.connection.HTTPConnection object>>'
+p364
+ssg70
+I833
+sg71
+(dp365
+I832
+S'            #we must run the risk of Nagle'
+p366
+sI833
+S'            self.send(message_body)'
+p367
+sI834
+S''
+sI835
+S'    def putrequest(self, method, url, skip_host=0, skip_accept_encoding=0):'
+p368
+sI836
+S'        """Send a request to the server.'
+p369
+sI837
+S''
+sI828
+S'            message_body = None'
+p370
+sI829
+S'        self.send(msg)'
+p371
+sI830
+S'        if message_body is not None:'
+p372
+sI831
+S'            #message_body was not a string (i.e. it is a file) and'
+p373
+ssg83
+S"(self=<requests.packages.urllib3.connection.HTTPConnection object>, message_body=set(['asdfasdf', 'text']))"
+p374
+sg85
+S'_send_output'
+p375
+sa(dp376
+g62
+S'/usr/lib/python2.7/httplib.py'
+p377
+sg64
+(dp378
+S'data'
+p379
+S"set(['asdfasdf', 'text'])"
+p380
+sS'self'
+p381
+S'<requests.packages.urllib3.connection.HTTPConnection object>'
+p382
+sS'self.sock.sendall'
+p383
+S'<bound method _socketobject.sendall of <socket._socketobject object>>'
+p384
+sS'self.sock'
+p385
+S'<socket._socketobject object>'
+p386
+ssg70
+I805
+sg71
+(dp387
+I800
+S'            datablock = data.read(blocksize)'
+p388
+sI801
+S'            while datablock:'
+p389
+sI802
+S'                self.sock.sendall(datablock)'
+p390
+sI803
+S'                datablock = data.read(blocksize)'
+p391
+sI804
+S'        else:'
+p392
+sI805
+S'            self.sock.sendall(data)'
+p393
+sI806
+S''
+sI807
+S'    def _output(self, s):'
+p394
+sI808
+S'        """Add a line of output to the current request buffer.'
+p395
+sI809
+S''
+ssg83
+S"(self=<requests.packages.urllib3.connection.HTTPConnection object>, data=set(['asdfasdf', 'text']))"
+p396
+sg85
+g230
+sa(dp397
+g62
+S'/usr/lib/python2.7/socket.py'
+p398
+sg64
+(dp399
+S'self._sock'
+p400
+S'<socket object, fd=16, family=2, type=1, protocol=6>'
+p401
+sS'self'
+p402
+S'<socket._socketobject object>'
+p403
+sS'args'
+p404
+S"(set(['asdfasdf', 'text']),)"
+p405
+sS'builtingetattr'
+p406
+S'<built-in function getattr>'
+p407
+sS'name'
+p408
+S"'sendall'"
+p409
+ssg70
+I224
+sg71
+(dp410
+I224
+S'    return getattr(self._sock,name)(*args)'
+p411
+sI225
+S''
+sI226
+S'for _m in _socketmethods:'
+p412
+sI227
+S'    p = partial(meth,_m)'
+p413
+sI228
+S'    p.__name__ = _m'
+p414
+sI219
+S'    family = property(lambda self: self._sock.family, doc="the socket family")'
+p415
+sI220
+S'    type = property(lambda self: self._sock.type, doc="the socket type")'
+p416
+sI221
+S'    proto = property(lambda self: self._sock.proto, doc="the socket protocol")'
+p417
+sI222
+S''
+sI223
+S'def meth(name,self,*args):'
+p418
+ssg83
+S"(name='sendall', self=<socket._socketobject object>, *args=(set(['asdfasdf', 'text']),))"
+p419
+sg85
+S'meth'
+p420
+sasS'pyver'
+p421
+S'Python 2.7.5+: /home/wantsomechocolate/Code/web2py/start/env/bin/python (prefix: /home/wantsomechocolate/Code/web2py/start/env)'
+p422
+sS'session'
+p423
+g57
+(S's\xc8\x00\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">m</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>asdfasdf</div></td></tr></table></div></td></tr></table></div>'
+tRp424
+sS'etype'
+p425
+S"<type 'exceptions.TypeError'>"
+p426
+sS'date'
+p427
+S'Fri Jul 11 08:09:14 2014'
+p428
+sS'response'
+p429
+g57
+(S'st1\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7f8878255618&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_pulse</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-64d71a5d-3d2b-4dc4-847a-44b9d42fc9f4<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">google_analytics_id</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">logo</td><td style="vertical-align:top;">:</td><td><div><a class="brand" href="http://www.web2py.com/"><b>web<span>2</span>py</b>&trade;&nbsp;</a></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/pulse/default/index</div></td></tr><tr><td><div><table></table></div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div><span class="highlighted">web2py</span></div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://web2py.com</div></td></tr><tr><td><div><table><tr><td><div><table><tr><td><div>My Sites</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/site</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>This App</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/admin/default/design/pulse</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Controller&#x27;&gt;, False, &#x27;/admin/default/edit/pulse/controllers/default.py&#x27;), (&lt;lazyT &#x27;View&#x27;&gt;, False, &#x27;/admin/default/edit/pulse/views/default/pulse.html&#x27;), (&lt;lazyT &#x27;Layout&#x27;&gt;, False, &#x27;/admin/default/edit/pulse/views/layout.html&#x27;), (&lt;lazyT &#x27;Stylesheet&#x27;&gt;, False, &#x27;/admin/default/edit/pulse/static/css/web2py.css&#x27;), (&lt;lazyT &#x27;DB Model&#x27;&gt;, False, &#x27;/admin/default/edit/pulse/models/db.py&#x27;), (&lt;lazyT &#x27;Menu Model&#x27;&gt;, False, &#x27;/admin/default/edit/pulse/models/menu.py&#x27;), (&lt;lazyT &#x27;Database&#x27;&gt;, False, &#x27;/pulse/appadmin/index&#x27;), (&lt;lazyT &#x27;Errors&#x27;&gt;, False, &#x27;/admin/default/errors/pulse&#x27;), (&lt;lazyT &#x27;About&#x27;&gt;, False, &#x27;/admin/default/about/pulse&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>web2py.com</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Download&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/download&#x27;), (&lt;lazyT &#x27;Support&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/support&#x27;), (&lt;lazyT &#x27;Demo&#x27;&gt;, False, &#x27;http://web2py.com/demo_admin&#x27;), (&lt;lazyT &#x27;Quick Examples&#x27;&gt;, False, &#x27;http://web2py.com/examples/default/examples&#x27;), (&lt;lazyT &#x27;FAQ&#x27;&gt;, False, &#x27;http://web2py.com/AlterEgo&#x27;), (&lt;lazyT &#x27;Videos&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/videos/&#x27;), (&lt;lazyT &#x27;Free Applications&#x27;&gt;, False, &#x27;http://web2py.com/appliances&#x27;), (&lt;lazyT &#x27;Plugins&#x27;&gt;, False, &#x27;http://web2py.com/plugins&#x27;), (&lt;lazyT &#x27;Layouts&#x27;&gt;, False, &#x27;http://web2py.com/layouts&#x27;), (&lt;lazyT &#x27;Recipes&#x27;&gt;, False, &#x27;http://web2pyslices.com/&#x27;), (&lt;lazyT &#x27;Semantic&#x27;&gt;, False, &#x27;http://web2py.com/semantic&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Documentation</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>http://www.web2py.com/book</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Preface&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/00&#x27;), (&lt;lazyT &#x27;Introduction&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/01&#x27;), (&lt;lazyT &#x27;Python&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/02&#x27;), (&lt;lazyT &#x27;Overview&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/03&#x27;), (&lt;lazyT &#x27;The Core&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/04&#x27;), (&lt;lazyT &#x27;The Views&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/05&#x27;), (&lt;lazyT &#x27;Database&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/06&#x27;), (&lt;lazyT &#x27;Forms and Validators&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/07&#x27;), (&lt;lazyT &#x27;Email and SMS&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/08&#x27;), (&lt;lazyT &#x27;Access Control&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/09&#x27;), (&lt;lazyT &#x27;Services&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/10&#x27;), (&lt;lazyT &#x27;Ajax Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/11&#x27;), (&lt;lazyT &#x27;Components and Plugins&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/12&#x27;), (&lt;lazyT &#x27;Deployment Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/13&#x27;), (&lt;lazyT &#x27;Other Recipes&#x27;&gt;, False, &#x27;http://www.web2py.com/book/default/chapter/14&#x27;), (&lt;lazyT &#x27;Buy this book&#x27;&gt;, False, &#x27;http://stores.lulu.com/web2py&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Community</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div>[(&lt;lazyT &#x27;Groups&#x27;&gt;, False, &#x27;http://www.web2py.com/examples/default/usergroups&#x27;), (&lt;lazyT &#x27;Twitter&#x27;&gt;, False, &#x27;http://twitter.com/web2py&#x27;), (&lt;lazyT &#x27;Live Chat&#x27;&gt;, False, &#x27;http://webchat.freenode.net/?channels=web2py&#x27;)]</div></td></tr></table></div></td></tr><tr><td><div><table><tr><td><div>Plugins</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>None</div></td></tr><tr><td><div>[(&#x27;plugin_wiki&#x27;, False, &#x27;http://web2py.com/examples/default/download&#x27;), (&lt;lazyT &#x27;Other Plugins&#x27;&gt;, False, &#x27;http://web2py.com/plugins&#x27;), (&lt;lazyT &#x27;Layout Plugins&#x27;&gt;, False, &#x27;http://web2py.com/layouts&#x27;)]</div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">author</td><td style="vertical-align:top;">:</td><td><div>Your Name &lt;you@example.com&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generator</td><td style="vertical-align:top;">:</td><td><div>Web2py Web Framework</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">keywords</td><td style="vertical-align:top;">:</td><td><div>web2py, python, framework</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/pulse/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;/home/wantsomechocolate/Code/web2py/start/applications/pulse/sessions/127.0.0.1-64d71a5d-3d2b-4dc4-847a-44b9d42fc9f4&#x27;, mode &#x27;rb+&#x27; at 0x7f8874389540&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/wantsomechocolate/Code/web2py/start/applications/pulse/sessions/127.0.0.1-64d71a5d-3d2b-4dc4-847a-44b9d42fc9f4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>41c44e5028208b8ea512cb2df47e0760</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-64d71a5d-3d2b-4dc4-847a-44b9d42fc9f4</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">subtitle</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">title</td><td style="vertical-align:top;">:</td><td><div>Pulse</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/pulse.html</div></td></tr></table></div>'
+tRp430
+sS'locals'
+p431
+(dp432
+S'self'
+p433
+S'<socket._socketobject object>'
+p434
+sg24
+S"(set(['asdfasdf', 'text']),)"
+p435
+sS'name'
+p436
+S"'sendall'"
+p437
+sssS'traceback'
+p438
+S'Traceback (most recent call last):\n  File "/home/wantsomechocolate/Code/web2py/start/gluon/restricted.py", line 220, in restricted\n    exec ccode in environment\n  File "/home/wantsomechocolate/Code/web2py/start/applications/pulse/controllers/default.py", line 90, in <module>\n  File "/home/wantsomechocolate/Code/web2py/start/gluon/globals.py", line 385, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/wantsomechocolate/Code/web2py/start/applications/pulse/controllers/default.py", line 18, in pulse\n    r_first = requests.post(url,data=data_first)\n  File "/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/api.py", line 88, in post\n    return request(\'post\', url, data=data, **kwargs)\n  File "/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/api.py", line 44, in request\n    return session.request(method=method, url=url, **kwargs)\n  File "/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/sessions.py", line 456, in request\n    resp = self.send(prep, **send_kwargs)\n  File "/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/sessions.py", line 559, in send\n    r = adapter.send(request, **kwargs)\n  File "/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/adapters.py", line 327, in send\n    timeout=timeout\n  File "/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/packages/urllib3/connectionpool.py", line 493, in urlopen\n    body=body, headers=headers)\n  File "/home/wantsomechocolate/Code/web2py/start/env/local/lib/python2.7/site-packages/requests/packages/urllib3/connectionpool.py", line 291, in _make_request\n    conn.request(method, url, **httplib_request_kw)\n  File "/usr/lib/python2.7/httplib.py", line 973, in request\n    self._send_request(method, url, body, headers)\n  File "/usr/lib/python2.7/httplib.py", line 1007, in _send_request\n    self.endheaders(body)\n  File "/usr/lib/python2.7/httplib.py", line 969, in endheaders\n    self._send_output(message_body)\n  File "/usr/lib/python2.7/httplib.py", line 833, in _send_output\n    self.send(message_body)\n  File "/usr/lib/python2.7/httplib.py", line 805, in send\n    self.sock.sendall(data)\n  File "/usr/lib/python2.7/socket.py", line 224, in meth\n    return getattr(self._sock,name)(*args)\nTypeError: must be string or buffer, not set\n'
+p439
+s.
