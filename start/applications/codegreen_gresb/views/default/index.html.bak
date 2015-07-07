@@ -1,0 +1,33 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{if 'message' in globals():}}
+<h3>Hello!</h3>
+
+<h4>{{=T('Welcome to the CodeGreen GresB Survey Portal')}}</h4>
+<ol>
+  <li>{{=T('This survey is designed to collect the data required for GresB compliance')}}</li>
+  <li>{{=XML(T('You have to login in order to gain access to the facilities for which you are allowed to enter data'))}}</li>
+  <li>{{=XML(T('Address every field. If you try to leave something blank, the application will yell at you'))}}</li>
+  <li>{{=XML(T('There are some checks in the background to make sure the information you enter is plausible'))}}</li>
+  <li>If you have any questions about the application 
+      contact <a href=mailto:jmcglynn@codegreensolutions.com>James McGlynn </a>(jmcglynn@codegreensolutions.com)</li>
+  <li>If you have any questions about 
+      GresB compliance contact <a href=mailto:plee@codegreensolutions.com>Patricia Lee </a>(plee@codegreensolutions.com)</li>
+</ol>
+{{elif 'content' in globals():}}
+{{=content}}
+{{else:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+
+{{block right_sidebar}}
+{{=A(T("Administrative Interface"), _href=URL('admin','default','index'), _class='btn',
+     _style='margin-top: 1em;')}}
+<h6>{{=T("Don't know what to do?")}}</h6>
+<ul>
+  <li>{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
+  <li><a href="http://web2py.com">web2py.com</a></li>
+  <li><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
+</ul>
+{{end}}
