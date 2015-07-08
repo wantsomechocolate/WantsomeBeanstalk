@@ -58,4 +58,32 @@ def call():
 
 
 def upload_logfile():
-    return dict()
+
+    from datetime import datetime
+
+    page_name=request.function
+
+    page_vars=request.vars
+    page_args=request.args
+
+    counter_data=db(db.page_visit_count.page_name==page_name).select().first()
+
+    if counter_data==None:
+
+        dummy = db.page_visit_count.insert(page_name=page_name, counter=1)
+
+        current_count=1
+
+    else:
+
+        current_count=counter_data.counter
+
+        current_count+=1
+
+        counter_data.update_record(counter=current_count)
+
+
+    dummy = db.page_visit_data.insert(page_name=page_name,last_visited=datetime.now(), vars=page_vars, args=page_args)
+
+
+    return dict(current_count=current_count)
